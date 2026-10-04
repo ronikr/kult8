@@ -40,8 +40,8 @@ An event with no `title_en` doesn't appear on English pages.
 - Before finishing a change: open the affected pages (both languages) at desktop and phone width (390px), check for console errors and sideways scrolling, and test forms with `?demo=open`.
 
 ## Git
-- Work on `main`. Commit with a short, clear message describing the change. Ro reviews and pushes.
+- Work on `main`. Commit with a short, clear message describing the change.
+- After Ro approves a diff, commit and push to `main` yourself. If a push fails or asks for a login, stop and report the exact error instead of retrying.
 
 ## Open items
 - Optional: when `home_when` is empty and `date` is set, show the formatted date on the card.
-- Optional: a 1200×630 link-preview image for WhatsApp shares.
