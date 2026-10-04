@@ -292,7 +292,8 @@
     <div class="wrap section-narrow">
       <h2>Bring connections to your event</h2>
       <p class="lede">Interested in bringing a connection workshop to your event, retreat, community, or group? Tell us a bit about it and we'll get back to you.</p>
-      <form class="contact-form" id="contactForm" novalidate>
+      <button type="button" class="btn btn-primary" id="contactOpen" aria-expanded="false" aria-controls="contactForm">Tell us about your event</button>
+      <form class="contact-form" id="contactForm" novalidate hidden>
         <div class="field-row">
           <div class="field">
             <label for="cname">Name</label>
@@ -435,6 +436,14 @@
     const statusEl = document.getElementById('contactStatus');
     const btn = document.getElementById('contactSubmit');
     const v = id => document.getElementById(id).value.trim();
+    const openBtn = document.getElementById('contactOpen');
+
+    openBtn.addEventListener('click', () => {
+      form.hidden = false;
+      openBtn.setAttribute('aria-expanded', 'true');
+      openBtn.hidden = true;
+      document.getElementById('cname').focus();
+    });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();

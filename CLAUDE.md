@@ -43,6 +43,5 @@ An event with no `title_en` doesn't appear on English pages.
 - Work on `main`. Commit with a short, clear message describing the change. Ro reviews and pushes.
 
 ## Open items
-- Collapse the organizer contact form behind a button (both languages).
 - Optional: when `home_when` is empty and `date` is set, show the formatted date on the card.
 - Optional: a 1200×630 link-preview image for WhatsApp shares.

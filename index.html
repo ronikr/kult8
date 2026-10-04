@@ -292,7 +292,8 @@
     <div class="wrap section-narrow">
       <h2>הביאו חיבורים לאירוע שלכם</h2>
       <p class="lede">מעוניינים להביא סדנת חיבור לאירוע, ריטריט, קהילה או קבוצה שלכם? ספרו לנו קצת על זה ונחזור אליכם.</p>
-      <form class="contact-form" id="contactForm" novalidate>
+      <button type="button" class="btn btn-primary" id="contactOpen" aria-expanded="false" aria-controls="contactForm">ספרו לנו על האירוע שלכם</button>
+      <form class="contact-form" id="contactForm" novalidate hidden>
         <div class="field-row">
           <div class="field">
             <label for="cname">שם</label>
@@ -434,6 +435,14 @@
     const statusEl = document.getElementById('contactStatus');
     const btn = document.getElementById('contactSubmit');
     const v = id => document.getElementById(id).value.trim();
+    const openBtn = document.getElementById('contactOpen');
+
+    openBtn.addEventListener('click', () => {
+      form.hidden = false;
+      openBtn.setAttribute('aria-expanded', 'true');
+      openBtn.hidden = true;
+      document.getElementById('cname').focus();
+    });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
