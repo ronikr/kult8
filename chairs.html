@@ -386,6 +386,7 @@
   }).catch(err => { KULT8.debug('ERROR: ' + err.message); render([]); });
 
   /* ================= SIGNUP ================= */
+  const validEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   const form = document.getElementById('signupForm');
   const statusEl = document.getElementById('signupStatus');
   const submitBtn = document.getElementById('signupSubmit');
@@ -400,11 +401,15 @@
       statusEl.textContent = "כדי שנוכל לעדכן אתכם, מלאו שם, מייל וטלפון.";
       statusEl.setAttribute('data-state','err'); return;
     }
+    if (!validEmail(email)){
+      statusEl.textContent = "כתובת המייל לא נראית תקינה. בדקו אותה ונסו שוב.";
+      statusEl.setAttribute('data-state','err'); return;
+    }
     submitBtn.disabled = true; submitBtn.textContent = "שולח…";
     try {
       const res = await fetch(CONFIG.N8N_WEBHOOK_URL, {
         method:'POST', headers:{ 'Content-Type':'application/json' },
-        body: JSON.stringify({ name, email, phone, interest: CONFIG.SIGNUP_INTEREST, source: 'chairs.html', submitted_at: new Date().toISOString() })
+        body: JSON.stringify({ name, email, phone, interest: CONFIG.SIGNUP_INTEREST, lang: 'he', source: 'chairs.html', submitted_at: new Date().toISOString() })
       });
       if (!res.ok) throw new Error('Bad response');
       form.reset();

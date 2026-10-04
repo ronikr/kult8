@@ -386,6 +386,7 @@
   }).catch(err => { KULT8.debug('ERROR: ' + err.message); render([]); });
 
   /* ================= SIGNUP ================= */
+  const validEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   const form = document.getElementById('signupForm');
   const statusEl = document.getElementById('signupStatus');
   const submitBtn = document.getElementById('signupSubmit');
@@ -398,6 +399,10 @@
     const phone = document.getElementById('fphone').value.trim();
     if (!name || !email || !phone){
       statusEl.textContent = "So we can let you know, please fill in your name, email and phone.";
+      statusEl.setAttribute('data-state','err'); return;
+    }
+    if (!validEmail(email)){
+      statusEl.textContent = "That email address doesn't look right. Check it and try again.";
       statusEl.setAttribute('data-state','err'); return;
     }
     submitBtn.disabled = true; submitBtn.textContent = "Sending…";

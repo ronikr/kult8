@@ -416,7 +416,7 @@
 
       btn.disabled = true; btn.textContent = 'שולח…';
       try {
-        await postJSON(CONFIG.N8N_WEBHOOK_URL, { name, email, phone, submitted_at: new Date().toISOString() });
+        await postJSON(CONFIG.N8N_WEBHOOK_URL, { name, email, phone, lang: 'he', source: 'index.html', submitted_at: new Date().toISOString() });
         form.reset();
         setStatus(statusEl, 'נרשמתם. נעדכן אתכם על האירועים הקרובים.', 'ok');
       } catch (err) {
