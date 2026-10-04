@@ -31,7 +31,7 @@ An event with no `title_en` doesn't appear on English pages.
 - Every form sends `lang` ("he"/"en") and `source` (the page file name).
 
 ## Links
-- WhatsApp: +1 929-589-8187 → `https://wa.me/19295898187?text=...` (footer of every page)
+- WhatsApp: +1 929-580-8187 → `https://wa.me/19295808187?text=...` (footer of every page)
 - Instagram: https://www.instagram.com/kult.8/
 
 ## Testing
