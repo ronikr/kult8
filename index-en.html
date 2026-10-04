@@ -362,7 +362,8 @@
       if (!shown.length){ empty.hidden = false; return; }
       shown.forEach(r => {
         const card = el('div','event');
-        if (r.home_when_en) card.append(el('p','when', r.home_when_en));
+        const when = r.home_when_en || (r.date ? [KULT8.fmtDate(r.date, 'en'), r.time].filter(Boolean).join(', ') : '');
+        if (when) card.append(el('p','when', when));
         const h = el('h3', null, r.title_en);
         if (r.is_new === '1') h.append(el('span','tag-new','New!'));
         card.append(h);
